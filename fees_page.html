@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fees Structure - NESGI</title>
+    <link rel="stylesheet" href="css/fees_style.css">
+    <link rel="shortcut icon" href="image/favicon.jpg" type="image/svg+xml">
+</head>
+<body>
+    <section class="header">
+        <nav>
+            <a href="index.html"><img src="image/favicon.png" id="logo-img"></a>
+            <div class="nav-links" id="navLinks">
+                <span class="icon" onclick="hidemenu()">&#10005;</span>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="Admission_page.html">Admission</a></li>
+                    <li><a href="index.html#course_call">Course</a></li>
+                    <li><a href="fees_page.html">Fees</a></li>
+                    <li><a href="Contact_page.html">Contact</a></li>
+                </ul>
+            </div> 
+            <span class="icon" onclick="showmenu()">&#9776;</span>
+        </nav>
+        <h1>Fees Structure</h1>
+    </section>
+
+    <section class="fees-structure">
+        <h2>Course Fee Details</h2>
+        <p>Below are the detailed fee structures for the courses offered by NESGI. Fees can be paid in two installments.</p>
+        <table class="fees-table">
+            <thead>
+                <tr>
+                    <th>Course</th>
+                    <th>Total Fees (₹)</th>
+                    <th>First Installment (₹)</th>
+                    <th>Second Installment (₹)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Computer Engineering</td>
+                    <td>1,20,000</td>
+                    <td>60,000</td>
+                    <td>60,000</td>
+                </tr>
+                <tr>
+                    <td>AI & ML Engineering</td>
+                    <td>1,50,000</td>
+                    <td>75,000</td>
+                    <td>75,000</td>
+                </tr>
+                <tr>
+                    <td>E&TC Engineering</td>
+                    <td>1,10,000</td>
+                    <td>55,000</td>
+                    <td>55,000</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section class="pay-fees">
+        <h2>Pay Your Fees</h2>
+        <form id="feesForm" onsubmit="processPayment(event)">
+            <div class="input-wrap">
+                <label for="course">Select Course:</label>
+                <select id="course" name="course" required>
+                    <option value="">-- Choose Course --</option>
+                    <option value="Computer Engineering">Computer Engineering</option>
+                    <option value="AI & ML Engineering">AI & ML Engineering</option>
+                    <option value="E&TC Engineering">E&TC Engineering</option>
+                </select>
+            </div>
+            <div class="input-wrap">
+                <label for="installment">Select Installment:</label>
+                <select id="installment" name="installment" required>
+                    <option value="">-- Choose Installment --</option>
+                    <option value="First">First Installment</option>
+                    <option value="Second">Second Installment</option>
+                </select>
+            </div>
+            <div class="input-wrap">
+                <label for="uid">Enter UID/Enrollment No:</label>
+                <input type="number" id="uid" placeholder="Enter your UID" required>
+            </div>
+            <button type="submit" class="button">Pay Fees</button>
+        </form>
+    </section>
+
+    <section class="footer">
+        <h4>About NESGI</h4>
+        <p>Recognized by the Government of Maharashtra and affiliated to the University of Pune, NESGI offers top-notch technical education. Established in 2010, we are committed to excellence in education and innovation.</p>
+        <p id="copyright">Made with &#10084; by Atharv Jadhav</p>
+    </section>
+
+    <script>
+        function processPayment(event) {
+            event.preventDefault();
+            const course = document.getElementById('course').value;
+            const installment = document.getElementById('installment').value;
+            const uid = document.getElementById('uid').value;
+
+            if (course && installment && uid) {
+                alert(`Payment for ${installment} of ${course} initiated successfully for UID: ${uid}`);
+            } else {
+                alert("Please fill out all the required fields.");
+            }
+        }
+
+        const navLinks = document.getElementById("navLinks");
+        function showmenu() { navLinks.style.right = "0"; }
+        function hidemenu() { navLinks.style.right = "-200px"; }
+    </script>
+</body>
+</html>
